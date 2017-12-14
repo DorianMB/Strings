@@ -101,4 +101,22 @@ class StrTest extends TestCase
         $this->assertSame('my-string', $str);
     }
 
+    public function testExo5()
+    {
+        $str = Str::toStudlyCase('my_string');
+        $this->assertSame('MyString', $str);
+
+        $str = Str::toStudlyCase('myString');
+        $this->assertSame('MyString', $str);
+
+        $str = Str::toStudlyCase('my-string');
+        $this->assertSame('MyString', $str, -1);
+
+        $str = Str::toStudlyCase('my string');
+        $this->assertSame('MyString', $str);
+
+        $str = Str::toStudlyCase('My String');
+        $this->assertSame('MyString', $str);
+    }
+
 }
