@@ -12,6 +12,8 @@ class Str
     use titleCase;
 
     private $string;
+    private $modif;
+    private $send;
 
 
 
@@ -19,6 +21,7 @@ class Str
     public function __construct($string)
     {
         $this->string = $string;
+        $this->modif = $string;
     }
 
     //Méthode magique qui transforme l'objet en string.
@@ -27,8 +30,11 @@ class Str
         return $this->toString();
     }
 
-    public function toString(){
-        return $this->string;
+    public function toString()
+    {
+        $this->send = $this->modif;
+        $this->reset();
+        return $this->send;
     }
 
     //Fonction on qui crée un nouvel objet Str en static
@@ -37,29 +43,35 @@ class Str
         return new Str($string);
     }
 
+    public function reset()
+    {
+        $this->modif = $this->string;
+        return $this;
+    }
+
     //Fonction qui remplace un mot par un autre
     public function replace ($search, $replace)
     {
-        $this->string = str_replace($search, $replace, $this->string);
+        $this->modif = str_replace($search, $replace, $this->modif);
         return $this;
     }
 
     //Fonction qui met la première lettre des mots en majuscule
     public function ucwords()
     {
-        $this->string = ucwords($this->string);
+        $this->modif = ucwords($this->modif);
         return $this;
     }
 
     //Fonction qui met la première lettre des mots en minuscule
     public function lcfirst()
     {
-        $this->string = lcfirst($this->string);
+        $this->modif = lcfirst($this->modif);
         return $this;
     }
 
     public function strtolower(){
-        $this->string = strtolower($this->string);
+        $this->modif = strtolower($this->modif);
         return $this;
     }
 

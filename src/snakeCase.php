@@ -16,7 +16,7 @@ trait snakeCase
         }
         else{
             $patern ="/(.)(?=[A-Z])/";
-            $this->string = preg_replace($patern, '$1_',$this->string);
+            $this->modif = preg_replace($patern, '$1_',$this->modif);
             return $this
                 ->strtolower();
         }
