@@ -7,6 +7,7 @@ class Str
     use camelCase;
     use snakeCase;
     use slugCase;
+    use kebabCase;
 
     private $string;
 
