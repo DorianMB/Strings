@@ -4,6 +4,8 @@ namespace Strings;
 
 class Str
 {
+    use camelCase;
+
     private $string;
 
 
@@ -49,5 +51,11 @@ class Str
     {
         $this->string = lcfirst($this->string);
         return $this;
+    }
+
+    public static function __callStatic($name, $arguments)
+    {
+        $method = (string) Str::on($name)->replace('to', '')->lcfirst();
+        return (string) Str::on($arguments[0])->{$method}();
     }
 }
