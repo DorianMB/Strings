@@ -5,6 +5,7 @@ namespace Strings;
 class Str
 {
     use camelCase;
+    use snakeCase;
 
     private $string;
 
@@ -50,6 +51,11 @@ class Str
     public function lcfirst()
     {
         $this->string = lcfirst($this->string);
+        return $this;
+    }
+
+    public function strtolower(){
+        $this->string = strtolower($this->string);
         return $this;
     }
 
