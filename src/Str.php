@@ -9,6 +9,7 @@ class Str
     use slugCase;
     use kebabCase;
     use studlyCase;
+    use titleCase;
 
     private $string;
 
