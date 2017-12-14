@@ -3,20 +3,20 @@
 namespace Strings;
 
 
-trait snakeCase
+trait slugCase
 {
-    public function snakeCase()
+    public function slugCase()
     {
         if (preg_match("/[-,_, ]+/", $this->string) === 1){
             return $this
-                ->replace('-', ' ')
+                ->replace('_', ' ')
                 ->ucwords()
-                ->replace(' ', '_')
+                ->replace(' ', '-')
                 ->strtolower();
         }
         else{
             $patern ="/(.)(?=[A-Z])/";
-            $this->string = preg_replace($patern, '$1_',$this->string);
+            $this->string = preg_replace($patern, '$1-',$this->string);
             return $this
                 ->strtolower();
         }
