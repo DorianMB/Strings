@@ -29,4 +29,22 @@ class StrTest extends TestCase
         $this->assertSame('myString', $str);
     }
 
+    public function testExo2_5()
+    {
+        $str = Str::toCamelCase('my_string');
+        $this->assertSame('myString', $str);
+
+        $str = Str::toCamelCase('myString');
+        $this->assertSame('myString', $str);
+
+        $str = Str::toCamelCase('my-string');
+        $this->assertSame('myString', $str);
+
+        $str = Str::toCamelCase('my string');
+        $this->assertSame('myString', $str);
+
+        $str = Str::toCamelCase('My String');
+        $this->assertSame('myString', $str);
+    }
+
 }
