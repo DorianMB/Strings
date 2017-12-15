@@ -12,8 +12,6 @@ class Str
     use titleCase;
 
     private $string;
-    private $modif;
-    private $send;
 
 
 
@@ -21,7 +19,6 @@ class Str
     public function __construct($string)
     {
         $this->string = $string;
-        $this->modif = $string;
     }
 
     //Méthode magique qui transforme l'objet en string.
@@ -32,9 +29,7 @@ class Str
 
     public function toString()
     {
-        $this->send = $this->modif;
-        $this->reset();
-        return $this->send;
+        return $this->string;
     }
 
     //Fonction on qui crée un nouvel objet Str en static
@@ -45,39 +40,44 @@ class Str
 
     public function reset()
     {
-        $this->modif = $this->string;
-        return $this;
+        $str = $this->string;
+        return new Str($str);
     }
 
     //Fonction qui remplace un mot par un autre
     public function replace ($search, $replace)
     {
-        $this->modif = str_replace($search, $replace, $this->modif);
-        return $this;
+        $str = str_replace($search, $replace, $this->string);
+        return new Str($str);
     }
 
     //Fonction qui met la première lettre des mots en majuscule
     public function ucwords()
     {
-        $this->modif = ucwords($this->modif);
-        return $this;
+        $str = ucwords($this->string);
+        return new Str($str);
     }
 
     //Fonction qui met la première lettre des mots en minuscule
     public function lcfirst()
     {
-        $this->modif = lcfirst($this->modif);
-        return $this;
+        $str = lcfirst($this->string);
+        return new Str($str);
     }
 
     public function strtolower(){
-        $this->modif = strtolower($this->modif);
-        return $this;
+        $str = strtolower($this->string);
+        return new Str($str);
     }
 
     public static function __callStatic($name, $arguments)
     {
         $method = (string) Str::on($name)->replace('to', '')->lcfirst();
         return (string) Str::on($arguments[0])->{$method}();
+    }
+
+    public function __get($name)
+    {
+        $this->$name()->toString();
     }
 }

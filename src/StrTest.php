@@ -4,6 +4,7 @@ namespace Strings;
 
 use PHPUnit\Framework\TestCase;
 
+
 class StrTest extends TestCase
 {
     public function testExo1()
@@ -137,24 +138,43 @@ class StrTest extends TestCase
         $this->assertSame('MyString', $str);
     }
 
-            public function testExo6()
-          {
-                $str = Str::on('mY StrIng');
+    public function testExo6()
+    {
+            $str = Str::on('mY StrIng');
 
-                $this->assertSame('myString', $str->camelCase()->toString());   // true
+            $this->assertSame('myString', $str->camelCase()->toString());   // true
 
-                $this->assertSame('my_string', $str->snakeCase()->toString()); // true
+            $this->assertSame('my_string', $str->snakeCase()->toString()); // true
 
-                $this->assertSame('MyString', $str->studlyCase()->toString()); // true
+            $this->assertSame('MyString', $str->studlyCase()->toString()); // true
 
-                $this->assertSame('MyString', $str->titleCase()->toString()); // true
+            $this->assertSame('MyString', $str->titleCase()->toString()); // true
 
-                $this->assertSame('my-string', $str->slugCase()->toString()); // true
+            $this->assertSame('my-string', $str->slugCase()->toString()); // true
 
-                $this->assertSame('my-string', $str->kebabCase()->toString()); // true
+            $this->assertSame('my-string', $str->kebabCase()->toString()); // true
 
-                $this->assertSame('mY StrIng',  $str->toString()); // true
+            $this->assertSame('mY StrIng',  $str->toString()); // true
 
-                $this->assertSame('mY StrIng', (string) $str); // true
-        }
+            $this->assertSame('mY StrIng', (string) $str); // true
+    }
+   /*
+    public function testExo7()
+    {
+        $str = str('mY StrIng');
+
+        $this->assertSame('myString',$str->camelCase );// true
+
+        $this->assertSame('my_string',$str->snakeCase );// true
+
+        $this->assertSame('MyString',$str->studlyCase );// true
+
+        $this->assertSame('MyString',$str->titleCase );// true
+
+        $this->assertSame('my-string',$str->slugCase );// true
+
+        $this->assertSame('my-string',$str->kebabCase );// true
+
+        //$this->assertSame('mY StrIng',$str()); // true
+    }*/
 }
