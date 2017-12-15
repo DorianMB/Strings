@@ -35,39 +35,39 @@ class Str
     //Fonction on qui crée un nouvel objet Str en static
     public static function on($string)
     {
-        return new Str($string);
+        return new self($string);
     }
 
     public function reset()
     {
         $str = $this->string;
-        return new Str($str);
+        return new self($str);
     }
 
     //Fonction qui remplace un mot par un autre
     public function replace ($search, $replace)
     {
         $str = str_replace($search, $replace, $this->string);
-        return new Str($str);
+        return new self($str);
     }
 
     //Fonction qui met la première lettre des mots en majuscule
     public function ucwords()
     {
         $str = ucwords($this->string);
-        return new Str($str);
+        return new self($str);
     }
 
     //Fonction qui met la première lettre des mots en minuscule
     public function lcfirst()
     {
         $str = lcfirst($this->string);
-        return new Str($str);
+        return new self($str);
     }
 
     public function strtolower(){
         $str = strtolower($this->string);
-        return new Str($str);
+        return new self($str);
     }
 
     public static function __callStatic($name, $arguments)
@@ -78,6 +78,14 @@ class Str
 
     public function __get($name)
     {
-        $this->$name()->toString();
+        $method = (string) Str::on($name)->lcfirst();
+        $str = $this->{$method}()->toString();
+        return $str;
+    }
+
+    public function __invoke()
+    {
+        $str = $this->toString();
+        return $str;
     }
 }

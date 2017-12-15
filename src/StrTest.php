@@ -158,23 +158,38 @@ class StrTest extends TestCase
 
             $this->assertSame('mY StrIng', (string) $str); // true
     }
-   /*
     public function testExo7()
     {
         $str = str('mY StrIng');
 
-        $this->assertSame('myString',$str->camelCase );// true
+        $string = $str->camelCase;
+        $this->assertSame('myString', $string);// true
 
-        $this->assertSame('my_string',$str->snakeCase );// true
+        $string = $str->snakeCase;
+        $this->assertSame('my_string', $string);// true
 
-        $this->assertSame('MyString',$str->studlyCase );// true
+        $string = $str->studlyCase;
+        $this->assertSame('MyString', $string);// true
 
-        $this->assertSame('MyString',$str->titleCase );// true
+        $string = $str->titleCase;
+        $this->assertSame('MyString', $string);// true
 
-        $this->assertSame('my-string',$str->slugCase );// true
+        $string = $str->slugCase;
+        $this->assertSame('my-string', $string);// true
 
-        $this->assertSame('my-string',$str->kebabCase );// true
+        $string = $str->kebabCase;
+        $this->assertSame('my-string', $string);// true
 
-        //$this->assertSame('mY StrIng',$str()); // true
-    }*/
+        $this->assertSame('mY StrIng',$str()); // true
+
+        $kebab = str('mY StrIng')
+            ->camelCase()
+            ->snakeCase()
+            ->studlyCase()
+            ->titleCase()
+            ->slugCase()
+            ->kebabCase;
+
+        $this->assertSame('my-string', $kebab);
+    }
 }

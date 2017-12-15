@@ -2,7 +2,7 @@
 
 use Strings\Str;
 
-function drctfyvtgub(string $string)
+function str($string)
 {
     return new Str($string);
 }
