@@ -158,6 +158,7 @@ class StrTest extends TestCase
 
             $this->assertSame('mY StrIng', (string) $str); // true
     }
+
     public function testExo7()
     {
         $str = str('mY StrIng');
@@ -192,4 +193,35 @@ class StrTest extends TestCase
 
         $this->assertSame('my-string', $kebab);
     }
+/*
+    public function TestExo8()
+    {
+        $str = Str::checkIf('mY StrIng')->contains('str'); // true
+        
+        $str = Str::checkIf('mY StrIng')->contains('str', [strict] true ); // false
+
+        $str = Str::checkIf('mY StrIng')->contains('Str', [strict] true ); // true
+
+        $str = Str::checkIf('mY StrIng')->snake_case()->contains('str', [strict] true ); // true
+
+        $str = Str::on('mY StrIng')->snake_case()->contains('str', [strict] true ); // true
+
+        $str = str('mY StrIng')->snake_case()->contains('str', [strict] true ); // true
+
+        $str = Str::checkIf('mY StrIng')->startsWith('my'); // true
+
+        $str = Str::checkIf('mY StrIng')->startsWith('my', [strict] true ); // false
+
+        $str = Str::checkIf('mY StrIng')->endsWith('ing'); // true
+
+        $str = Str::checkIf('mY StrIng')->endsWith('ing', [strict] true ); // false
+
+        $str = Str::checkIf('mY StrIng')->is('*ing'); // true
+
+        $str = Str::checkIf('mY StrIng')->is('my*'); // true
+
+        $str = Str::checkIf('mY StrIng')->is('my*ng'); // true
+
+        $str = Str::checkIf('mY StrIng')->is('my*ng', [strict] true); // false
+    }*/
 }

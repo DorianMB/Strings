@@ -38,10 +38,9 @@ class Str
         return new self($string);
     }
 
-    public function reset()
+    public static function checkIf($string)
     {
-        $str = $this->string;
-        return new self($str);
+        return new self($string);
     }
 
     //Fonction qui remplace un mot par un autre
@@ -69,6 +68,17 @@ class Str
         $str = strtolower($this->string);
         return new self($str);
     }
+/*
+    public function contains($search)
+    {
+        $boo = strpos($this->string,$search);
+        if ($boo >= 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }*/
 
     public static function __callStatic($name, $arguments)
     {
