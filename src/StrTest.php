@@ -193,35 +193,49 @@ class StrTest extends TestCase
 
         $this->assertSame('my-string', $kebab);
     }
-/*
-    public function TestExo8()
+
+    public function testExo8()
     {
-        $str = Str::checkIf('mY StrIng')->contains('str'); // true
+        $str = Str::checkIf('mY StrIng')->contains('Str'); // true
+        $this->assertTrue($str, '');
         
-        $str = Str::checkIf('mY StrIng')->contains('str', [strict] true ); // false
+        $str = Str::checkIf('mY StrIng')->contains('str', true ); // false
+        $this->assertFalse($str, '');
 
-        $str = Str::checkIf('mY StrIng')->contains('Str', [strict] true ); // true
+        $str = Str::checkIf('mY StrIng')->contains('Str',  true ); // true
+        $this->assertTrue($str, '');
 
-        $str = Str::checkIf('mY StrIng')->snake_case()->contains('str', [strict] true ); // true
+        $str = Str::checkIf('mY StrIng')->snakecase()->contains('str', true ); // true
+        $this->assertTrue($str, '');
 
-        $str = Str::on('mY StrIng')->snake_case()->contains('str', [strict] true ); // true
+        $str = Str::on('mY StrIng')->snakecase()->contains('str', true ); // true
+        $this->assertTrue($str, '');
 
-        $str = str('mY StrIng')->snake_case()->contains('str', [strict] true ); // true
+        $str = str('mY StrIng')->snakecase()->contains('str', true ); // true
+        $this->assertTrue($str, '');
 
         $str = Str::checkIf('mY StrIng')->startsWith('my'); // true
+        $this->assertTrue($str, '');
 
-        $str = Str::checkIf('mY StrIng')->startsWith('my', [strict] true ); // false
+        $str = Str::checkIf('mY StrIng')->startsWith('my', true ); // false
+        $this->assertFalse($str, '');
 
         $str = Str::checkIf('mY StrIng')->endsWith('ing'); // true
+        $this->assertTrue($str, '');
 
-        $str = Str::checkIf('mY StrIng')->endsWith('ing', [strict] true ); // false
+        $str = Str::checkIf('mY SIng')->endsWith('ing', true ); // false
+        $this->assertFalse($str, '');
 
         $str = Str::checkIf('mY StrIng')->is('*ing'); // true
+        $this->assertTrue($str, '');
 
         $str = Str::checkIf('mY StrIng')->is('my*'); // true
+        $this->assertTrue($str, '');
 
         $str = Str::checkIf('mY StrIng')->is('my*ng'); // true
+        $this->assertTrue($str, '');
 
-        $str = Str::checkIf('mY StrIng')->is('my*ng', [strict] true); // false
-    }*/
+        $str = Str::checkIf('mY StrIng')->is('my*ng', true); // false
+        $this->assertFalse($str, '');
+    }
 }

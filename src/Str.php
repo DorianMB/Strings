@@ -40,7 +40,7 @@ class Str
 
     public static function checkIf($string)
     {
-        return new self($string);
+        return self::on($string);
     }
 
     //Fonction qui remplace un mot par un autre
@@ -68,17 +68,53 @@ class Str
         $str = strtolower($this->string);
         return new self($str);
     }
-/*
-    public function contains($search)
+
+    public function contains($search, $strict=false)
     {
-        $boo = strpos($this->string,$search);
-        if ($boo >= 1){
+
+        if ($strict === true){
+            $pattern = "/".$search."/";
+            if (preg_match($pattern, $this->string) >= 1){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            $pattern = "/".$this->strtolower($search)."/";
+            if (preg_match($pattern, $this->strtolower($this->string)) >= 1){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+
+    public function startsWith($search, $strict = false)
+    {
+        $search = '^'.$search;
+        return $this->contains($search, $strict);
+
+    }
+
+    public function endsWith($search, $strict = false)
+    {
+        $search = $search.'$';
+        return $this->contains($search, $strict);
+    }
+
+    public function is($search, $strict = false)
+    {
+        $table = preg_split("/[*]/", $search);
+        if ($this->startsWith($table[0], $strict)===true && $this->endsWith($table[1], $strict)===true){
             return true;
         }
         else{
             return false;
         }
-    }*/
+    }
 
     public static function __callStatic($name, $arguments)
     {
